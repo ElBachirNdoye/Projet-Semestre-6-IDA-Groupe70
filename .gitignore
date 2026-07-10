@@ -1,0 +1,49 @@
+# Créé par https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows
+# Modifier sur https://www.toptal.com/developers/gitignore?templates=visualstudiocode,windows
+
+### Visual Studio Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.extraits de code
+
+# Historique local pour Visual Studio Code
+.histoire/
+
+# Extensions Visual Studio Code créées
+*.vsix
+
+### Correctif Visual Studio Code ###
+# Ignorer tout l'historique local des fichiers
+.histoire
+.ionide
+
+### Windows ###
+# Fichiers de cache des miniatures Windows
+Thumbs.db
+Thumbs.db:cryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Fichier de vidage
+*.stackdump
+
+# Fichier de configuration du dossier
+[Dd]desktop.ini
+
+# Corbeille utilisée sur les partages de fichiers
+$RECYCLE.BIN/
+
+# Fichiers d'installation Windows
+*.taxi
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Raccourcis Windows
+*.lnk
+
+# Fin de https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows
