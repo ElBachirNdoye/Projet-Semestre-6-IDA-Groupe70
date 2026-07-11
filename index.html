@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <!-- Page d'accueil -->
@@ -19,14 +19,179 @@
 
     <!-- fin -->
 <!-- Page A propos -->
+<header class="entete">
+    <h1>À propos de SolaireÉnergie</h1>
+    <p>Des solutions solaires innovantes pour un avenir plus durable</p>
+</header>
+<section class="presentation">
+    <div class="texte">
+        <h2>Qui sommes-nous ?</h2>
+        <p>
+            SolaireÉnergie accompagne les particuliers et les entreprises
+            dans leurs projets d'énergie renouvelable.
+            Nous proposons des équipements solaires performants
+            adaptés aux besoins de chaque client.
+        </p>
 
+         <p>
+            Notre objectif est de rendre l'énergie propre accessible
+            grâce à des solutions fiables, économiques et respectueuses
+            de l'environnement.
+        </p>
+    </div>
+</section>
+<section class="mission">
+
+    <h2>Notre mission</h2>
+
+    <div class="blocs">
+
+        <div class="bloc">
+            <h3>☀️ Innovation</h3>
+            <p>
+                Développer des solutions énergétiques modernes
+                pour répondre aux défis actuels.
+            </p>
+        </div>
+         <div class="bloc">
+            <h3>🔧 Expertise</h3>
+            <p>
+                Une équipe spécialisée dans l'installation
+                et la maintenance des systèmes solaires.
+            </p>
+        </div>
+
+
+        <div class="bloc">
+            <h3>🌱 Durabilité</h3>
+            <p>
+                Participer à la réduction de l'impact
+                environnemental grâce aux énergies propres.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="engagement">
+
+<h2>Pourquoi choisir SolaireÉnergie ?</h2>
+<button onclick="afficher('qualite')">
+Qualité des produits
+</button>
+
+<button onclick="afficher('service')">
+Service client
+</button>
+<button onclick="afficher('suivi')">
+Suivi des projets
+</button>
+<div id="qualite" class="contenu">
+    Nos équipements solaires sont choisis auprès de fournisseurs fiables
+    afin de garantir une excellente performance, une longue durée de vie
+    et une installation sécurisée.
+</div>
+
+
+<div id="service" class="contenu">
+    Notre équipe accompagne chaque client avec des conseils adaptés,
+    une assistance rapide et un suivi personnalisé pour répondre
+    à chaque besoin.
+</div>
+
+
+<div id="suivi" class="contenu">
+    Nous assurons le contrôle, la maintenance et le suivi régulier
+    des installations afin de garantir leur efficacité dans le temps.
+</div>
+
+</section>
+
+<footer>
+<p>
+© 2026 SolaireÉnergie
+</p>
+</footer>
+<script src="styles.css"></script>
     <!-- fin -->
 <!-- Page contact -->
-    
+    <section class="contact">
+
+<div class="title">
+<h1>Contactez-nous</h1>
+<p>Notre équipe est à votre écoute pour répondre à toutes vos questions.</p>
+</div>
+
+<div class="container">
+
+<div class="infos">
+
+<div class="card">
+<i>📞</i>
+<h3>Téléphone</h3>
+<p>+221 77 874 51 54</p>
+<span>Lun-Sam : 9h-18h</span>
+</div>
+<div class="card">
+<i>📩</i>
+<h3>Email</h3>
+<p>contact@solaireenergie.com</p>
+<span>Réponse sous 24h</span>
+</div>
+
+<div class="card">
+<i>📍</i>
+<h3>Adresse</h3>
+<p>123 Bountou Pikine</p>
+<span>11000 Pikine / Sénégal</span>
+</div>
+
+<div class="card">
+<i>🕒</i>
+<h3>Horaires</h3>
+<p>Lun-Ven : 9h-18h</p>
+<span>Sam : 9h-16h</span>
+</div>
+
+</div>
+
+<div class="formulaire">
+    <h2>Demander un devis gratuit</h2>
+<p>Recevez votre devis personnalisé sous 48 heures.</p>
+
+<form id="contactForm">
+
+<input type="text" id="nom" placeholder="Nom complet">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="tel" id="telephone" placeholder="Téléphone">
+
+<input type="text" id="sujet" placeholder="Sujet de la demande">
+
+<textarea id="message" rows="6" placeholder="Décrivez votre projet..."></textarea>
+
+<button type="submit">Envoyer ma demande</button>
+
+</form>
+
+<p id="resultat"></p>
+
+</div>
+
+</div>
+
+
+<footer>
+    <p>
+      © 2026 SolaireÉnergie  
+    </p>
+</footer>
     <!-- fin -->
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="scripte.js"></script>
+    <script src="styles.css"></script>
+    <script src="contact.js"></script>
 </body>
 </html>
