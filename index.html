@@ -3,18 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SolaireÉnergie - Installation et Vente de Panneaux Solaires</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<!-- Page d'accueil -->
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
+    <!--Page d'Accueil  -->
 
+ <!-- ============================================================
+       1. NAVBAR — Barre de navigation qui est fixe en haut de page
+       ============================================================ -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+
+    <!-- container : centre le contenu et limite sa largeur max -->
+    <div class="container">
+
+      <!-- LOGO : lien cliquable vers la section #accueil -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#accueil">
+        <!-- Icône de soleil  -->
+        <div class="logo-icon">
+          <i class="bi bi-sun-fill"></i>
+        </div>
+        <!-- Nom de l'entreprise : "Énergie" en jaune -->
+        <span class="fw-bold fs-5">Solaire<span class="text-warning">Énergie</span></span>
+      </a>
+
+      <!-- BOUTON HAMBURGER ☰ (visible uniquement sur mobile) et  L'icône est générée par Bootstrap
+           data-bs-toggle="collapse"    ->    active ou désactive le menu
+           data-bs-target="#navbarNav"     -> cible le div avec id="navbarNav"
+           aria-expanded="false"           -> accessibilité (lecteurs d'écran)
+           aria-label="Toggle navigation"  -> description pour malvoyants -->
+      <button class="navbar-toggler border-0" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- MENU DE NAVIGATION -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <!-- Liste des liens de navigation avec ms-auto qui pousse la liste vers la droite -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <!-- Chaque <li> est un élément de liste -->
+          <li class="nav-item"><a class="nav-link fw-medium" href="#accueil">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link fw-medium" href="#produits">Produits</a></li>
+          <li class="nav-item"><a class="nav-link fw-medium" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link fw-medium" href="#a-propos">À propos</a></li>
+          <!-- <li class="nav-item"><a class="nav-link fw-medium" href="#temoignages">Témoignages</a></li> -->
+          <li class="nav-item"><a class="nav-link fw-medium" href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Bouton "Devis gratuit" : appel à l'action principal
+             btn-solar -> notre classe CSS personnalisée (dégradé orange)
+             ms-lg-3   -> marge gauche qui marche uniquement sur grand écran -->
+        <a href="#contact" class="btn btn-solar ms-lg-3">
+          Devis gratuit <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+
+  <main id="pageContent">
+
+    <!-- ============================================================
+       2. HERO — Section d'accueil principale 
+       ============================================================ -->
+  <section id="accueil" class="hero-section d-flex align-items-center">
+
+    <!-- Couche de superposition un peu transparente sur l'image de fond
+         avec ::before qui crée l'effet de fond sombre avec des lueurs d'oranges -->
+    <div class="hero-overlay"></div>
+
+    <!-- position-relative z-1 -> le contenu passe au-dessus de l'overlay -->
+    <div class="container position-relative" style="z-index:2">
+
+      <!-- Grille Bootstrap : 1 ligne, les colonnes s'adaptent -->
+      <div class="row align-items-center">
+
+        <!-- col-lg-7 -> sur grand écran, elle occupe 7 grille de la largeur
+             Sur mobile, elle prend toute la largeur automatiquement -->
+        <div class="col-lg-7">
+
+          <!-- saut de lignes -->
+        <br><br><br>   
+          <!-- Titre principal (H1) : un seul h1 par page 
+               display-3  -> très grande taille de texte
+               fw-bold    -> gras (en bold)
+               text-white -> texte blanc
+               lh-sm      -> interligne réduit ou petit
+               mb-4       -> marge en bas  -->
+          <h1 class="display-3 fw-bold text-white lh-sm mb-4">
+            L'énergie solaire<br>
+            <!-- text-warning -> pour une couleur jaune -->
+            <span class="text-warning">à votre portée</span>
+          </h1>
+
+          <!-- Paragraphe d'accroche
+               lead -> pour une texte légèrement plus grand que la normale
+               mb-5 -> une grande marge en bas -->
+          <p class="lead mb-5" style="color: rgba(255,255,255, 0.85)">
+            Installation, vente et maintenance de solutions photovoltaïques
+            pour particuliers et professionnels. Réduisez votre facture
+            jusqu'à <strong class="text-warning">80%</strong>.
+          </p>
+
+          <!-- Groupe de boutons d'action
+               d-flex              -> affichage en ligne (Flexbox)
+               flex-column         -> en colonne par défaut (mobile)
+               flex-sm-row         -> en ligne sur petit écran et plus
+               gap-3               -> espace entre les boutons -->
+          <div class="d-flex flex-column flex-sm-row gap-3">
+
+            <!-- Bouton principal : fond jaune -->
+            <a href="#contact" class="btn btn-warning btn-lg fw-semibold shadow">
+              Demander un devis gratuit <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+
+            <!-- Bouton secondaire : contour blanc -->
+            <a href="#produits" class="btn btn-outline-light btn-lg fw-semibold">
+              Découvrir nos produits
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <!-- FIN ligne principale du héros -->
+
+    </div>
+  </section>
+  <!-- FIN HERO -->
+
+   <!-- ============================================================
+       3. AVANTAGES — 4 points pour l'entreprise
+       
+       py-5    -> padding (espace interne) 
+       bg-light → fond gris-clair
+       ============================================================ -->
+  <section class="py-5 bg-light">
+    <div class="container py-3">
+      <div class="py-3 bg-light text-center">
+        <h2>Pourquoi choisir l'énergie solaire ?</h2>
+        <p>Des solutions durables et rentables pour votre avenir énergétique</p>
+      </div>
+      <!-- Grille de 4 colonnes
+           row g-4      -> 4 lignes avec espacement (gap) 
+           col-md-3     -> sur écran moyen : 4 colonnes 
+           col-6        -> sur mobile : 2 colonnes  -->
+      <div class="row g-4">
+
+        <!-- Avantage 1 : Garantie -->
+        <div class="col-md-3 col-6">
+          <!-- avantage-card  -->
+          <div class="avantage-card text-center">
+            <!-- Cercle contenant l'icône
+                 bg-warning-subtle -> fond jaune  -->
+            
+            <div class="avantage-icon bg-warning-subtle">
+              <i class="bi bi-shield text-warning"></i>
+            </div>
+            <!-- fw-bold -> texte en gras | mt-3 -> marge haut | mb-1 -> marge bas petite -->
+            <h6 class="fw-bold mt-3 mb-1">Garantie 10 ans</h6>
+            <p class="text-muted small mb-0">Nos panneaux sont garantis pour une performance optimale pendant 20 ans.</p>
+          </div>
+        </div>
+
+        <!-- Avantage 2 : Installation -->
+        <div class="col-md-3 col-6">
+          <div class="avantage-card text-center">
+            <div class="avantage-icon bg-warning-subtle">
+              <i class="bi bi-tools text-warning"></i>
+            </div>
+            <h6 class="fw-bold mt-3 mb-1">Installation rapide</h6>
+            <p class="text-muted small mb-0">Installation professionnelle en 1 à 3 jours par nos équipes certifiées.</p>
+          </div>
+        </div>
+
+        <!-- Avantage 3 : Économies -->
+        <div class="col-md-3 col-6">
+          <div class="avantage-card text-center">
+            <div class="avantage-icon bg-warning-subtle">
+              <i class="bi bi-graph-down-arrow text-warning"></i>
+            </div>
+            <h6 class="fw-bold mt-3 mb-1">Économies garanties</h6>
+            <p class="text-muted small mb-0">Diminuez vos factures d'électricité jusqu'à 80% avec nos solutions solaires.</p>
+          </div>
+        </div>
+
+        <!-- Avantage 4 : SAV -->
+        <div class="col-md-3 col-6">
+          <div class="avantage-card text-center">
+            <div class="avantage-icon bg-warning-subtle">
+              <i class="bi bi-sun text-warning"></i>
+            </div>
+            <h6 class="fw-bold mt-3 mb-1">Energie propre</h6>
+            <p class="text-muted small mb-0">Produisez votre propre électricité verte et réduisez votre empreinte carbone.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIN AVANTAGES -->
+
+  </main>
     <!-- fin -->
+
 <!-- Page Produit -->
+ 
+    <section>class="Nos produits"</section>
+    <h1>Nos produits</h1>
+    <p class="sous-titres">Equipements solaires de haute qualité pour vos installation photovoltaique</p>
+<div class="Titre-categorie>
+<i class="fa solid fa-sun"></i>
+    <h2>Panneaux solaires</h2>
+</div>
+<div class="grille produits">
+<!--Produit 1-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Panneau monocristallin 400W</h3>
+<span class="badge">Recommandé</span>
+</div>
+<p class="prix">194000</p>
+<div class="specs">
+<div>
+    <strong>400W</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>21.5%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>25ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Excellent rapport qualité-prix
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">durable et fiable</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Installation facile
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Certifié
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+</html>
+<!--Produit 2-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Panneau Polycristallin 350W</h3>
+<span class="badge">Recommandé</span>
+</div>
+<p class="prix">162000</p>
+<div class="specs">
+<div>
+    <strong>350W</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>18.5%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>25ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Haute efficacité énergitique
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Resistance aux intemperies</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Performance optimale en faible luminosité
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Cadre en aluminium renforcé
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+</html>
+<!--Produit 3-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Panneau Premium 450W</h3>
+<span class="badge">Recommandé</span>
+</div>
+<p class="prix">260000</p>
+<div class="specs">
+<div>
+    <strong>450W</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>23.2%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>30ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Technologie de pointe
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Rendement maximal</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Design noir élegant
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Garantie de performance linéaire
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+</html>
+<!--Produit 1-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Onduleurs string 5KW</h3>
+<span class="badge">Recommandé</span>
+</div>
+<p class="prix">845000</p>
+<div class="specs">
+<div>
+    <strong>5KW</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>97.5%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>10ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Monitoring intégré
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Compatible wifi</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Protection IP65
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Multi-MPPT
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+<h1>Onduleurs</h1>
+<!--Produit 2-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Micro-onduleur 1.2KW</h3>
+<span class="badge">FLEXIBLE</span>
+</div>
+<p class="prix">162000</p>
+<div class="specs">
+<div>
+    <strong>1.2KW</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>96.8%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>25ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Installation par panneau
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Securité maximal</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Optimisation individuelle
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Extensible
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+</html>
+<!--Produit 3-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Oduleur hybrite 8KW</h3>
+<span class="badge">nouvelle generation</span>
+</div>
+<p class="prix">1624000</p>
+<div class="specs">
+<div>
+    <strong>8KW</strong>
+    <span>Puissance</span>
+</div>
+<div>
+    <strong>98.2%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>12ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Gestion batterie integrée
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Backup automatique</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Application mobile
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Mode autonome
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
 
+    <h1>Batterie</h1>
+    
+<!--Produit 1-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Batterie Lithium 5KWh</h3>
+</div>
+<p class="prix">2500000</p>
+<div class="specs">
+<div>
+    <strong>5KWh</strong>
+    <span>Capacité</span>
+</div>
+<div>
+    <strong>95%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>10ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Stockage jour/nuit
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Cycle de charge élevés</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Compact et silencieux
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Modulaire
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+
+<!--Produit 2-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Batterie Lithium 10KWh</h3>
+<span class="badge">Recommandé</span>
+</div>
+<p class="prix">4500000</p>
+<div class="specs">
+<div>
+    <strong>10KWh</strong>
+    <span>Capacité</span>
+</div>
+<div>
+    <strong>96%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>15ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Grande capacité
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">Autonome ptolongée</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Gestion intelligente
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Compatible à tout onduleur
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
+</body>
+<!--Produit 3-->
+<div class="carte-produit">
+<div class="entete-produit">
+<h3>Batterie Lithium 15KWh</h3>
+<span class="badge">Pro</span>
+</div>
+<p class="prix">6174000</p>
+<div class="specs">
+<div>
+    <strong>15KWh</strong>
+    <span>Capacité</span>
+</div>
+<div>
+    <strong>97%</strong>
+    <span>Efficacité</span>
+</div>
+<div>
+    <strong>15ans</strong>
+    <span>Garantie</span>
+</div>
+</div>
+<ul class="Avantages">
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Solution professionnelle
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check">independance maximale</i>
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Extension possible
+    </li>
+    <li>
+        <i class="fa-solid fa-circle-check"></i>Garantie performance
+    </li>
+</ul>
+<button class="btn-devis">demander un devis</button>
     <!-- fin -->
+    
 <!--Page Service -->
 
     <!-- fin -->
@@ -191,7 +741,10 @@ Suivi des projets
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="styles.css"></script>
+
     <script src="contact.js"></script>
+
+    <script src="scripte.js"></script>
+
 </body>
 </html>
