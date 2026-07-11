@@ -1,403 +1,54 @@
-
-
-
-/* Page d'accueil */
-/* :root → s'applique à toute la page (élément racine = <html>) */
-:root {
-  /* Couleurs principales du thème solaire */
-  --solar-orange: #f97316;   /* boutons, accents */
-  --solar-amber:  #f59e0b;   /* textes importants */
-  --solar-dark:   #1c1917;   /* fonds sombres */
-  --solar-gray:   #78716c;   /* textes secondaires */
-  --solar-light:  #fef3c7;   /* fonds doux */
-
-  /* Hauteur de la navbar  */
-  --navbar-h: 76px;
-
-  /* Police par défaut pour tout le site */
-  font-family: 'Poppins', sans-serif;
+/* Variables de thème */
+:root{
+  --solar-orange:#f97316;
+  --solar-amber:#f59e0b;
+  --solar-dark:#1c1917;
+  --solar-gray:#78716c;
+  --navbar-h:76px;
+  font-family:'Poppins',sans-serif;
 }
 
-/* ================================================================
-   2. STYLES GLOBAUX
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--solar-dark);overflow-x:hidden;margin:0}
+
+/* Navbar */
+#navbar{height:var(--navbar-h);z-index:2000;transition:box-shadow .3s ease,background .3s ease}
+#navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.12)!important}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--solar-orange),var(--solar-amber));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+.navbar-nav .nav-link{color:#44403c;padding-left:.75rem!important;padding-right:.75rem!important;position:relative;transition:color .2s}
+.navbar-nav .nav-link::after{content:'';position:absolute;left:.75rem;right:.75rem;bottom:4px;height:2px;background:linear-gradient(90deg,var(--solar-orange),var(--solar-amber));border-radius:2px;transform:scaleX(0);transition:transform .25s}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link.active{color:var(--solar-orange)}
+.navbar-nav .nav-link:hover::after,.navbar-nav .nav-link.active::after{transform:scaleX(1)}
+
+/* Bouton principal */
+.btn-solar{background:linear-gradient(135deg,var(--solar-orange),var(--solar-amber));color:#fff;border:none;font-weight:600;transition:opacity .2s,transform .15s,box-shadow .2s}
+.btn-solar:hover{opacity:.95;box-shadow:0 6px 20px rgba(249,115,22,.35)}
+
+/* Hero */
+.hero-section{min-height:100vh;position:relative;background:linear-gradient(135deg,#1c1917 0%,#292524 40%,#1c1917 100%);padding-top:var(--navbar-h)}
+.hero-section::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(249,115,22,.18) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(245,158,11,.12) 0%,transparent 50%)}
+.hero-overlay{position:absolute;top:0;right:0;bottom:0;left:0;background:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=70') center/cover no-repeat;opacity:.12}
+
+/* Avantages */
+.avantage-card{padding:1.5rem 1rem}
+.avantage-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5rem}
+
+/* Back to top */
+.back-to-top{position:fixed;right:20px;bottom:20px;display:none;border-radius:50%;width:44px;height:44px;align-items:center;justify-content:center}
+.back-to-top.visible{display:flex}
+
+/* Cards produits/contact */
+.card{border-radius:12px}
+.contact{padding:60px 0;background:#fbfbf5ea}
+.formulaire{background:#fff;padding:24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.formulaire .form-control,.formulaire .form-select{border-radius:8px}
+
+/* Form layout */
+.row.g-2{--bs-gutter-x:8px}
+
+/* Responsive */
+@media(max-width:900px){.container{padding-left:16px;padding-right:16px}.hero-section{padding-top:calc(var(--navbar-h)+10px)}}
 
-================================================================ */
-
-/* scroll-behavior: smooth -> quand on clique sur un lien #ancre,
-   la page défile doucement au lieu de sauter brusquement */
-html {
-  scroll-behavior: smooth;
-}
-
-/* body = le corps de la page avec
-   -> police principale
-   -> couleur de texte par défaut 
-   -> empêche l'apparition d'une barre de défilement horizontale
-  */
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #1c1917;
-  overflow-x: hidden;
-}
-
-/* Classe utilitaire pour les grandes sections de la page*/
-.py-section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
-/* ================================================================
-   3. NAVBAR — Barre de navigation
-================================================================ */
-
-/* La navbar elle-même !!*/
-#navbar {
-  height: var(--navbar-h);  /* hauteur fixe  */
-
-  z-index: 2000;
-
-  /* transition -> propriété durée et le temps */
-  transition: box-shadow 0.3s ease, background 0.3s ease;
-}
-
-/* quand on scrolle vers le bas, il renforce l'ombre pour séparer la navbar du contenu */
-#navbar.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
-  /* rgba -> une couleur avec transparence */
-}
-
-/* Icône soleil du logo : petit carré arrondi avec dégradé orange */
-.logo-icon {
-  width: 36px;
-  height: 36px;
-
-  /* Dégradé de l'orange  */
-  background: linear-gradient(135deg, #f97316, #f59e0b);
-
-  border-radius: 8px;  /* arrondir les coins */
-
-  /* Flexbox pour centrer l'icône dans le carré */
-  display: flex;
-  align-items: center;      /* centrage vertical */
-  justify-content: center;  /* centrage horizontal */
-
-  color: white;
-  font-size: 1.1rem;
-}
-
-/* Liens du menu de navigation */
-.navbar-nav .nav-link {
-  color: #44403c;              
-  padding-left: 0.75rem !important;   /* espace à gauche */
-  padding-right: 0.75rem !important;  /* espace à droite */
-  position: relative;
-  transition: color 0.2s ease;  /* changement de couleur animé */
-}
-
-/* Ligne pour décoration sous chaque lien (qui apparait au survol ::after)    */
-.navbar-nav .nav-link::after {
-  content: '';  /* obligatoire pour les pseudo-éléments (même s'il est vide) */
-
-  /* Position absolue par rapport au .nav-link  */
-  position: absolute;
-  left: 0.75rem;    /* aligne avec le padding */
-  right: 0.75rem;
-  bottom: 4px;      /* 4px au-dessus du bas du lien */
-
-  height: 2px;  /* petite ligne fine */
-
- 
-  background: linear-gradient(90deg, #f97316, #f59e0b); /* Dégradé de gauche à droite  */
-
-  border-radius: 2px;
-
-  transform: scaleX(0); /* la ligne est invisible et on fait scaleX(1) au survol  */
-
-  transition: transform 0.25s ease;  /* animation de la ligne */
-}
-
-/* Au survol -> changer la couleur du texte */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #f97316;  /* orange */
-}
-
-/* Faire apparaître la ligne  qui décore au survol  */
-.navbar-nav .nav-link.active::after,
-.navbar-nav .nav-link:hover::after {
-  transform: scaleX(1);  /* la ligne reprend sa taille normale -> qui apparaît */
-}
-
-/* ================================================================
-   4. BOUTON PERSONNALISÉ : .btn-solar
-================================================================ */
-.btn-solar {
-  background: linear-gradient(135deg, #f97316, #f59e0b);
-  color: white;
-  border: none;       /* pas de bordure */
-  font-weight: 600;   /*le met un peu gras */
-
-  /* Transition sur 3 propriétés en méme temps */
-  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-/* Au survol */
-.btn-solar:hover {
-  color: white;        /* engardant le texte blanc */
-  opacity: 0.9;        /* une légère transparent */
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35); /* Ombre sous le bouton */
-}
-
-/* Au clic : revenir à la position initiale */
-.btn-solar:active {
-  transform: translateY(0);
-}
-
-/* ================================================================
-   5. HERO — Section d'accueil principale
-================================================================ */
-
-.hero-section {
-  min-height: 100vh;  /* prend au moins toute la hauteur de l'écran */
-  position: relative; /* nécessaire pour positionner les enfants à absolus */
-
-  /* Fond un peu sombre  */
-  background: linear-gradient(135deg, #1c1917 0%, #292524 40%, #1c1917 100%);
-
-  /* Espace en haut pour ne pas être caché par la navbar fixe */
-  padding-top: var(--navbar-h);
-}
-
-/* effet lumineux d'orange en arrière-plan avec ::before */
-.hero-section::before {
-  content: ''; /*si l'élément est vide*/
-  position: absolute;
-
-  top: 0; right: 0; bottom: 0; left: 0;
-
-  /* Deux radial-gradient superposés : 0% = couleur au centre, transparent  */
-  background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(249, 115, 22, 0.18) 0%, transparent 60%),
-              radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 50%);
-}
-
-/* background-image un peu transparent  */
-.hero-overlay {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=70')
-              center / cover no-repeat;/* center -> image centrée - cover -> remplire tout | no-repeat -> pas de répétition */
-  
-  opacity: 0.12;  /* 12% de visiblité */
-}
-
-/* ================================================================
-   6. AVANTAGES — Les 4 points forts de notre site
-================================================================ */
-
-/* Espace interne de la carte avantage */
-.avantage-card {
-  padding: 1.5rem 1rem;
-}
-
-/* Cercle contenant l'icône */
-.avantage-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 auto;    /* centrer horizontalement */
-  font-size: 1.5rem;
-}
-
-/* --- Effet de flou lors de l'ouverture du menu mobile --- */
-#pageContent {
-  transition: filter 22s ease;
-}
-#pageContent.blurred {
-  filter: blur(4px);
-}
-
-/* Assure que le menu mobile (collapse) reste au-dessus du contenu flouté */
-@media (max-width: 991px) {
-  #navbar .navbar-collapse {
-    background: #ffffff;
-    z-index: 2001;
-  }
-}
-/* Fin du css de la page d'accueille */
-
-/* Styles de la page A propos et contact */
-apropos
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#f7f7f7;
-    color:#333;
-}
-
-
-.entete{
-    background:#FFC107;
-    padding:50px;
-    text-align:center;
-}
-
-
-.entete h1{
-    font-size:40px;
-    color:#222;
-}
-.entete p{
-    margin-top:15px;
-}
-
-
-.presentation{
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    padding:50px;
-}
-
-
-.qui-sommes-nous{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    padding:60px;
-    background:#ffffff;
-}
-
-.texte{
-    width:45%;
-}
-.texte h2,
-.mission h2,
-.engagement h2{
-    margin-bottom:20px;
-    color:#e09b00;
-}
-.image img{
-    width:350px;
-    border-radius:15px;
-}
-
-.mission{
-    padding:50px;
-    text-align:center;
-}
-.blocs{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-}
-.bloc{
-
-    background:white;
-    padding:25px;
-    width:280px;
-    border-radius:15px;
-    box-shadow:0 5px 15px #ccc;
-}
-.bloc h3{
-    margin-bottom:15px;
-}
-.engagement{
-
-    text-align:center;
-    padding:50px;
-}
-button{
-
-    background:#FFC107;
-    border:none;
-    padding:15px 25px;
-    margin:10px;
-    cursor:pointer;
-    border-radius:20px;
-}
-button:hover{
-
-    background:#e09b00;
-}
-.contenu{
-
-    display:none;
-    margin:20px auto;
-    background:white;
-    padding:20px;
-    width:60%;
-    border-radius:10px;
-}
-footer{
-
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-
-.contact{
-    padding: 60px 8%;
-    background: #fbfbf5ea;
-}
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f7fb;
-}
-
-.contact{
-padding:60px 8%;
-}
-.card i{
-    width:60px;
-    height:60px;
-    background:#f97316;
-    color:#fff;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
-    margin-bottom:20px;
-}
-
-.title{
-text-align:center;
-margin-bottom:40px;
-}
-
-.title h1{
-font-size:42px;
-color:#0f172a;
-margin-bottom:10px;
-}
-
-.title p{
-color:#555;
-}
-
-.container{
-display:grid;
 grid-template-columns:1fr 1.2fr;
 gap:40px;
 }
