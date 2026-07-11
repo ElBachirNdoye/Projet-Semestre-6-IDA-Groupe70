@@ -1,3 +1,6 @@
+
+
+
 /* Page d'accueil */
 /* :root → s'applique à toute la page (élément racine = <html>) */
 :root {
@@ -226,3 +229,297 @@ body {
   }
 }
 /* Fin du css de la page d'accueille */
+
+/* Styles de la page A propos et contact */
+apropos
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f7f7f7;
+    color:#333;
+}
+
+
+.entete{
+    background:#FFC107;
+    padding:50px;
+    text-align:center;
+}
+
+
+.entete h1{
+    font-size:40px;
+    color:#222;
+}
+.entete p{
+    margin-top:15px;
+}
+
+
+.presentation{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    padding:50px;
+}
+
+
+.qui-sommes-nous{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    padding:60px;
+    background:#ffffff;
+}
+
+.texte{
+    width:45%;
+}
+.texte h2,
+.mission h2,
+.engagement h2{
+    margin-bottom:20px;
+    color:#e09b00;
+}
+.image img{
+    width:350px;
+    border-radius:15px;
+}
+
+.mission{
+    padding:50px;
+    text-align:center;
+}
+.blocs{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+.bloc{
+
+    background:white;
+    padding:25px;
+    width:280px;
+    border-radius:15px;
+    box-shadow:0 5px 15px #ccc;
+}
+.bloc h3{
+    margin-bottom:15px;
+}
+.engagement{
+
+    text-align:center;
+    padding:50px;
+}
+button{
+
+    background:#FFC107;
+    border:none;
+    padding:15px 25px;
+    margin:10px;
+    cursor:pointer;
+    border-radius:20px;
+}
+button:hover{
+
+    background:#e09b00;
+}
+.contenu{
+
+    display:none;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    width:60%;
+    border-radius:10px;
+}
+footer{
+
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+
+.contact{
+    padding: 60px 8%;
+    background: #fbfbf5ea;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.contact{
+padding:60px 8%;
+}
+.card i{
+    width:60px;
+    height:60px;
+    background:#f97316;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.title{
+text-align:center;
+margin-bottom:40px;
+}
+
+.title h1{
+font-size:42px;
+color:#0f172a;
+margin-bottom:10px;
+}
+
+.title p{
+color:#555;
+}
+
+.container{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:40px;
+}
+.infos{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card i{
+width:60px;
+height:60px;
+background:#f97316;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin-bottom:20px;
+}
+
+.card h3{
+margin-bottom:10px;
+color:#0f172a;
+}
+.card p{
+color:#f97316;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.card span{
+color:#666;
+}
+
+.formulaire{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.formulaire h2{
+margin-bottom:10px;
+color:#0f172a;
+}
+
+.formulaire p{
+margin-bottom:25px;
+color:#666;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+input,
+textarea{
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:16px;
+}
+
+textarea{
+grid-column:1/3;
+resize:none;
+}
+
+button{
+grid-column:1/3;
+padding:16px;
+background:#f97316;
+color:white;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#ea580c;
+}
+
+#resultat{
+margin-top:20px;
+font-weight:bold;
+}
+@media(max-width:900px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.infos{
+grid-template-columns:1fr;
+}
+
+form{
+grid-template-columns:1fr;
+}
+
+textarea,
+button{
+grid-column:1;
+}
+
+}
+/* fin */
+
