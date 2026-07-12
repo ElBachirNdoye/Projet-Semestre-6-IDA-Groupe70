@@ -465,6 +465,25 @@ class ServiceManager {
 
         fields.forEach(field => {
             const errorEl = document.getElementById(`${field.id}-error`);
+
+            if (field.type === 'checkbox') {
+                if (!field.checked) {
+                    isValid = false;
+                    field.classList.add('error');
+                    if (errorEl) {
+                        errorEl.textContent = 'Vous devez accepter ce champ';
+                        errorEl.style.display = 'block';
+                    }
+                    errorMessages.push(`Le champ ${field.name} est obligatoire`);
+                } else {
+                    field.classList.remove('error');
+                    if (errorEl) {
+                        errorEl.style.display = 'none';
+                    }
+                }
+                return;
+            }
+
             if (!field.value.trim()) {
                 isValid = false;
                 field.classList.add('error');
@@ -506,25 +525,44 @@ class ServiceManager {
      */
     submitForm(form) {
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        data.service = this.currentService;
+        const selectedService = formData.get('service');
 
-        // Simulation d'envoi
+        if (!selectedService || selectedService === '') {
+            formData.set('service', this.currentService);
+        }
+
         const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm text-white" role="status" aria-hidden="true"></span> Envoi en cours...';
+        submitBtn.textContent = 'Envoi en cours...';
 
-        // Simuler une requête AJAX
-        setTimeout(() => {
-            console.log('✅ Formulaire envoyé avec succès :', data);
-            this.showNotification(
-                `✅ Votre demande pour "${servicesData[this.currentService].titre}" a été envoyée avec succès !`,
-                'success'
-            );
-            form.reset();
+        fetch('PHP/contact.php', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                this.showNotification(
+                    `✅ Votre demande pour "${servicesData[this.currentService].titre}" a été envoyée avec succès !`,
+                    'success'
+                );
+                form.reset();
+            } else {
+                this.showNotification(result.error || 'Une erreur est survenue lors de l’envoi.', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            this.showNotification('Erreur de connexion. Veuillez réessayer.', 'error');
+        })
+        .finally(() => {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Envoyer la demande';
-        }, 2000);
+            submitBtn.textContent = originalText;
+        });
     }
 
     /**

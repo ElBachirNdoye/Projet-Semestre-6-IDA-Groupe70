@@ -9,7 +9,7 @@ define('DB_USER', getenv('DB_USER') ?: 'root');
 define('DB_PASS', getenv('DB_PASS') ?: '');
 define('DB_CHARSET', 'utf8mb4');
 
-define('NOTIF_EMAIL', getenv('NOTIF_EMAIL') ?: 'contact@solaire-energie.fr');
+define('NOTIF_EMAIL', getenv('NOTIF_EMAIL') ?: 'elbachir.ndoye@unchk.edu.sn');
 define('NOTIF_FROM', getenv('NOTIF_FROM') ?: 'noreply@solaire-energie.fr');
 define('NOTIF_FROM_NAME', 'SolaireÉnergie – Formulaire de contact');
 

@@ -141,7 +141,7 @@ try {
         error_log('[SolaireÉnergie][DB] ' . $e->getMessage());
     }
 
-    jsonError('Erreur serveur. Veuillez nous appeler directement au +33 4 12 34 56 78.', 500);
+    jsonError('Erreur serveur. Veuillez nous appeler directement au +221 77 874 51 54.', 500);
 }
 
 // Prépare l'email envoyé à l'équipe
@@ -198,7 +198,7 @@ $corpsClient = implode("\r\n", [
     '',
     'Pour toute question urgente, contactez-nous :',
     '  📞 +221 77 874 51 54  (Lun – Ven, 9h – 18h, Sam -9h -16h)',
-    '  ✉  contact@solaire-energie.fr',
+    '  ✉  elbachir.ndoye@unchk.edu.sn',
     '',
     'Cordialement,',
     'L\'équipe SolaireÉnergie',
