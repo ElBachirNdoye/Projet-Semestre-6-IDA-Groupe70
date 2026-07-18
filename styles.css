@@ -1,0 +1,149 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+ background: #f9fafb;
+ padding: 30px;
+ color: #1f2937;
+}
+
+.container {
+ max-width: 1200px;
+ margin: 0 auto;
+}
+
+/* Header */
+.header {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ margin-bottom: 30px;
+}
+
+.header i {
+ background: #f97316;
+ color: white;
+ padding: 10px;
+ border-radius: 10px;
+ font-size: 20px;
+}
+
+.header h1 {
+ font-size: 28px;
+ font-weight: 700;
+}
+
+/* Grille */
+.grille {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 24px;
+}
+
+/* Carte produit */
+.carte {
+ background: white;
+ border: 1px solid #e5e7eb;
+ border-radius: 12px;
+ padding: 24px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.titre-ligne {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ margin-bottom: 8px;
+}
+
+.carte h2 {
+ font-size: 18px;
+ font-weight: 600;
+}
+
+.badge {
+ padding: 4px 10px;
+ border-radius: 20px;
+ font-size: 12px;
+ font-weight: 600;
+}
+
+.badge.orange {
+ background: #fed7aa;
+ color:#ea580c;
+}
+
+.badge.jaune {
+ background: #fef3c7;
+ color: #d97706;
+}
+
+.prix {
+ color: #f97316;
+ font-size: 22px;
+ font-weight: 700;
+ margin-bottom: 20px;
+}
+
+/* Specs */
+.specs {
+ display: flex;
+ justify-content: space-between;
+ text-align: center;
+ margin-bottom: 20px;
+ padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.specs div {
+ display: flex;
+ flex-direction: column;
+}
+
+.specs strong {
+ font-size: 16px;
+ font-weight: 600;
+}
+
+.specs span {
+ font-size: 12px;
+ color: #6b7280;
+}
+
+/* Features */
+.features {
+ list-style: none;
+ margin-bottom: 20px;
+}
+
+.features li {
+ margin-bottom: 10px;
+ font-size: 14px;
+ color: #374151;
+}
+
+.features i {
+ color: #10b981;
+ margin-right: 8px;
+}
+
+/* Bouton */
+.btn {
+ width: 100%;
+ background: #1e293b;
+ color: white;
+ border: none;
+ padding: 12px;
+ border-radius: 8px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: 0.2s;
+}
+
+.btn:hover {
+ background: #0f172a;
+}
